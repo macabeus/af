@@ -1,0 +1,12 @@
+platform: n64
+versions:
+  - name: jp
+    paths:
+      build_dir: build
+      nonmatchings: asm
+tools:
+  asmlift:
+    target: ido7.1
+    # the DERIVED elf: a copy of build/animalforest-jp.elf with the DWARF types-sidecar
+    # merged in (tools/asmlift-sidecar.sh) — names from .symtab, shapes from the DWARF
+    elf: build/animalforest-jp-syms.elf

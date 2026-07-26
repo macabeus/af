@@ -1,3 +1,23 @@
+## About this fork (`asmlift-benchmark` branch)
+
+This branch exists to make the [asmlift](https://github.com/macabeus/asmlift) decompiler
+benchmark reproducible. It is the upstream
+[zeldaret/af](https://github.com/zeldaret/af) tree at the exact commit the benchmark's
+functions were vendored from, plus a minimal integration commit:
+
+- `decomp.yaml` — points asmlift at the project's symbol source (`tools.asmlift.elf`)
+- `tools/asmlift-sidecar.sh` + a make-generated sidecar TU (`build/asmlift-ctx.c`,
+  header list curated in the `Makefile`) — build a DWARF *types-sidecar*
+  (declaration shapes for the project's globals) and merge it into a **copy** of the
+  built ELF (`make asmlift-elf`); the real build outputs are untouched
+- nothing else differs from upstream
+
+To reproduce the benchmark rows: build the project as usual (the ROM must match), run
+`make asmlift-elf`, then follow the per-function scripts published in the benchmark
+report.
+
+---
+
 # Animal Forest [![Build Status][jenkins-badge]][jenkins] ![Code jp Progress] [![Discord Channel][discord-badge]][discord]
 
 [jenkins]: https://jenkins.deco.mp/job/AF/job/main
