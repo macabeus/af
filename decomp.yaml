@@ -1,8 +1,15 @@
+name: Animal Forest
+repo: https://github.com/zeldaret/af
 platform: n64
 versions:
   - name: jp
+    fullname: Japan
+    sha1: 3ee1f866eb08c0ce57a30e09f0c8b0a16a760c8f
     paths:
+      target: baseroms/jp/baserom-decompressed.z64
       build_dir: build
+      map: build/animalforest-jp.map
+      compiled_target: build/animalforest-jp.z64
       nonmatchings: asm
 tools:
   asmlift:
